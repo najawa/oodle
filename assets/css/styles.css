@@ -40,6 +40,15 @@ button {
     vertical-align: middle;
     border-radius: 5px;
 }
+#controls {
+    display: none;
+}
+.play {
+    display: none;
+}
+.pause {
+    display: none;
+}
 #buttons #submit {
     float: left;
     margin: 0 15px;

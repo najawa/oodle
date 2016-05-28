@@ -29,6 +29,14 @@ $('document').ready(function() {
             $('#name').val('');
         });
 
+        $('.play').click(function() {
+            textToSpeak($('#name').val());
+        });
+
+        $('.pause').click(function() {
+            window.speechSynthesis.cancel();
+        });
+
         $('#help').click(function() {
             swal({
                 title: "Oodle",
@@ -47,17 +55,35 @@ $('document').ready(function() {
         var oodled = name.replace(/[aAeEoOuU]/ig,string);
         nameField.val(oodled);
 
+        $('#controls').show();
+
+        textToSpeak(oodled);
+    }
+
+    function textToSpeak(text) {
+        var play = $('.play');
+        var pause = $('.pause');
+
         var msg = new SpeechSynthesisUtterance();
         var voices = window.speechSynthesis.getVoices();
 
-        console.log(voices);
         msg.voice = voices[4];
         msg.voiceURI = 'native';
         msg.volume = 1; // 0 to 1
         msg.rate = .6; // 0.1 to 10
         msg.pitch = 1; //0 to 2
-        msg.text = oodled;
+        msg.text = text;
         msg.lang = 'en-US';
+
+        msg.addEventListener('start', function () {
+            play.hide();
+            pause.show();
+        });
+
+        msg.addEventListener('end', function () {
+            pause.hide();
+            play.show();
+        });
 
         window.speechSynthesis.speak(msg);
     }
