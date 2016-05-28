@@ -56,7 +56,7 @@ $('document').ready(function() {
     function oodle() {
         var nameField = $('#name');
         var name = nameField.val();
-        var oodled = name.replace(/[aAeEoOuU]/ig,string);
+        var oodled = name.replace(/[aAeEiIoOuUyY]/ig,string);
         nameField.val(oodled);
 
         $('#controls').css({display: "inline"});
