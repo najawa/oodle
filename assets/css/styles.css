@@ -27,7 +27,7 @@ textarea:focus, textarea:active {
     position: relative;
     top: 0;
     padding: 1% 0;
-    text-align: center;
+    text-align: right;
 }
 button {
     color: #fff;
@@ -36,10 +36,17 @@ button {
     padding: 15px 24px;
     background: #974B91;
     border: none;
+    vertical-align: middle;
     border-radius: 5px;
+}
+#buttons #submit {
+    float: left;
+    margin: 0 15px;
+    font-size: 1.4em;
 }
 #buttons #reset {
     color: rgba(255,255,255,.7);
+    margin: 0 15px 0 0;
 }
 #buttons i {
     color: #974B91;
@@ -47,6 +54,19 @@ button {
     vertical-align: middle;
     margin: 0 6px;
 }
+
+#bitbucket {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 2em;
+    margin: .4em .8em;
+    color: rgba(0,0,0,.7);
+}
+#bitbucket:hover {
+    color: rgba(0,0,0,1);
+}
+
 #copyright {
     position: fixed;
     bottom: 0;
