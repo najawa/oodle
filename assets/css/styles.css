@@ -42,11 +42,12 @@ button {
 #buttons #submit {
     float: left;
     margin: 0 15px;
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 #buttons #reset {
-    color: rgba(255,255,255,.7);
+    color: rgba(255,255,255,.8);
     margin: 0 15px 0 0;
+    font-size: 1.2em;
 }
 #buttons i {
     color: #974B91;
