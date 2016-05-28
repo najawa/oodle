@@ -7,6 +7,7 @@ $('document').ready(function() {
         typeSpeed: 0,
         callback: function() {
             init();
+            setTimeout(function(){document.getElementById('name').focus()
         }
     });
 
