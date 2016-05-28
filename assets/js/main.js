@@ -7,8 +7,10 @@ $('document').ready(function() {
         typeSpeed: 0,
         callback: function() {
             init();
-            setTimeout(function(){document.getElementById('name').focus()
-        });
+            setTimeout(function() {
+                document.getElementById('name').focus()
+            });
+        }
     });
 
     var currentYear = new Date().getFullYear();
