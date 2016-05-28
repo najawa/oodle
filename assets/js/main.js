@@ -2,16 +2,53 @@ $('document').ready(function() {
 
     var string = "oodle";
 
-    $('textarea').typed({
-        strings: ["Welcome to Oodle!", "Enter your name here.", ""],
-        typeSpeed: 0,
-        callback: function() {
-            init();
-            setTimeout(function() {
-                document.getElementById('name').focus()
-            });
-        }
-    });
+    var share = $('#share');
+    determineIntroduction('name', window.location.search);
+
+    function determineIntroduction( name, url ) {
+        if (!url) url = location.href;
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp( regexS );
+        var results = regex.exec( url );
+        return results == null ? firstView() : sharedView( decodeURLEncoding(results[1]) );
+    }
+
+    function decodeURLEncoding(query) {
+        return decodeURIComponent(query.replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"'));
+    }
+
+    function setCurrentName(name) {
+        $('html').attr("name", name);
+    }
+
+    function firstView() {
+        $('textarea').typed({
+            strings: ["Welcome to Oodle!", "Enter your name here.", ""],
+            typeSpeed: 0,
+            callback: function() {
+                init();
+                setTimeout(function() {
+                    document.getElementById('name').focus()
+                });
+            }
+        });
+    }
+
+    function sharedView(name) {
+        setCurrentName(name);
+        share.show();
+        $('textarea').typed({
+            strings: [name],
+            typeSpeed: 0,
+            callback: function() {
+                init();
+                setTimeout(function() {
+                    document.getElementById('name').focus()
+                });
+            }
+        });
+    }
 
     var currentYear = new Date().getFullYear();
     $('.date').html(currentYear);
@@ -28,9 +65,59 @@ $('document').ready(function() {
             oodle();
         });
 
+        $('#share').click(function() {
+
+            var copyButton = "";
+            var copyIsSupportedFeature = document.queryCommandSupported('copy');
+
+            if(copyIsSupportedFeature) {
+                copyButton = "<button id='copyShareLink'>copy</button>";
+            }
+
+           swal({
+               title: "Share Your Oodle!",
+               text: "Create a link for: <strong>" + $('html').attr("name") + "</strong>",
+               type: "input",
+               html: true,
+               inputValue: $(location).attr('href'),
+               showConfirmButton: true,
+               showCancelButton: true,
+               closeOnConfirm: false,
+               confirmButtonText: "Copy",
+               cancelButtonText: "Close",
+               confirmButtonColor: "#974B91",
+               cancelButtonColor: "#4C4C4C",
+               allowOutsideClick: true
+           }, function(isConfirm) {
+               if(copyIsSupportedFeature) {
+                   if(isConfirm) {
+                       $('.sweet-alert input').select();
+                       var copySuccess = true;
+                       try {
+                           document.execCommand('copy');
+                       } catch (e) {
+                            copySuccess = false;
+                       }
+                       swal({
+                           title:  copySuccess ? "Successfully Copied!" : "Unsupported Feature",
+                           text: copySuccess ? "Thank you for using Oodle!" : "Not supported by your current browser",
+                           type: copySuccess ? "success" : "error",
+                           timer: 2000,
+                           showConfirmButton: false,
+                           allowOutsideClick: true
+                       });
+                   } else {
+                       swal.close();
+                   }
+               }
+           });
+        });
+
         $('#reset').click(function() {
             $('#controls').css({display: "none"});
             $('#name').val('');
+            resetURL();
+            share.hide();
         });
 
         $('.play').click(function() {
@@ -38,6 +125,8 @@ $('document').ready(function() {
         });
 
         $('.pause').click(function() {
+            $('.play').show();
+            $('.pause').hide();
             window.speechSynthesis.cancel();
         });
 
@@ -48,7 +137,8 @@ $('document').ready(function() {
                 html: true,
                 showCancelButton: false,
                 confirmButtonText: "Let's Oodle!",
-                type: "info"
+                type: "info",
+                allowOutsideClick: true
             })
         });
     }
@@ -61,7 +151,25 @@ $('document').ready(function() {
 
         $('#controls').css({display: "inline"});
 
+        createShareLink(name);
+        setCurrentName(name);
+        share.show();
+
         textToSpeak(oodled);
+    }
+
+    function createShareLink(name) {
+        if (history.pushState) {
+            var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?name=' + name;
+            window.history.pushState({path:newurl},'',newurl);
+        }
+    }
+
+    function resetURL(name) {
+        if (history.pushState) {
+            var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.pushState({path:newurl},'',newurl);
+        }
     }
 
     function textToSpeak(text) {
