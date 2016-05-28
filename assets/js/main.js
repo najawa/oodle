@@ -26,6 +26,7 @@ $('document').ready(function() {
         });
 
         $('#reset').click(function() {
+            $('#controls').css({display: "none"});
             $('#name').val('');
         });
 
