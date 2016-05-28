@@ -8,7 +8,7 @@ $('document').ready(function() {
         callback: function() {
             init();
             setTimeout(function(){document.getElementById('name').focus()
-        }
+        });
     });
 
     var currentYear = new Date().getFullYear();
