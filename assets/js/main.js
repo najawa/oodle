@@ -32,7 +32,7 @@ $('document').ready(function() {
         $('#help').click(function() {
             swal({
                 title: "Oodle",
-                text: "<p>Just enter your name directly into the page, and click <i>Oodlize</i>!</p><br><br><small>Using&nbsp;the&nbsp;latest&nbsp;research&nbsp;and&nbsp;technology&nbsp;in&nbsp;oodle, this&nbsp;applicationvwill&nbsp;replace&nbsp;every&nbsp;vowel&nbsp;with&nbsp;'oodle'.</small>",
+                text: "<p>Just enter your name directly into the page, and click to <i>Oodlize</i>!</p><br><br><small>Using&nbsp;the&nbsp;latest&nbsp;research&nbsp;and&nbsp;technology&nbsp;in&nbsp;oodle, this&nbsp;applicationvwill&nbsp;replace&nbsp;every&nbsp;vowel&nbsp;with&nbsp;'oodle'.</small>",
                 html: true,
                 showCancelButton: false,
                 confirmButtonText: "Let's Oodle!",
