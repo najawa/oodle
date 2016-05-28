@@ -76,3 +76,7 @@ button {
     margin: .4em;
     color: rgba(0,0,0,.54);
 }
+
+.typed-cursor {
+    display: none;
+}
