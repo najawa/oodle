@@ -18,6 +18,7 @@ textarea {
     overflow: scroll;
     border: none;
     text-align: center;
+    outline:none;
 }
 textarea:focus, textarea:active {
     outline: none;
