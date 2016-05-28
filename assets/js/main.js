@@ -134,10 +134,11 @@ $('document').ready(function() {
 
         $('#reset').click(function() {
             $('#controls').css({display: "none"});
-            $('#name').val('');
             $('html').attr("name","");
-            resetURL();
             share.hide();
+            resetURL();
+            $('#name').val('');
+            $('#name').focus();
         });
 
         $('.play').click(function() {
