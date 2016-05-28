@@ -54,6 +54,10 @@ button {
     margin: 0 15px;
     font-size: 1.2em;
 }
+#buttons #submit.disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
 #buttons #reset {
     color: rgba(255,255,255,.8);
     margin: 0 15px 0 0;

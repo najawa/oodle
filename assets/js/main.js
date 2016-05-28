@@ -1,5 +1,7 @@
 $('document').ready(function() {
 
+    $('html').attr("name","");
+
     var string = "oodle";
 
     var share = $('#share');
@@ -23,6 +25,7 @@ $('document').ready(function() {
     }
 
     function firstView() {
+        hasThisBeenOodled();
         $('textarea').typed({
             strings: ["Welcome to Oodle!", "Enter your name here.", ""],
             typeSpeed: 0,
@@ -36,7 +39,6 @@ $('document').ready(function() {
     }
 
     function sharedView(name) {
-        setCurrentName(name);
         share.show();
         $('textarea').typed({
             strings: [name],
@@ -50,8 +52,21 @@ $('document').ready(function() {
         });
     }
 
+    function hasThisBeenOodled() {
+        console.log($('html').attr("name") , $('#name').val());
+        if($('html').attr("name") == $('#name').val()) {
+            $('#submit').addClass('disabled');
+        } else {
+            $('#submit').removeClass('disabled');
+        }
+    }
+
     var currentYear = new Date().getFullYear();
     $('.date').html(currentYear);
+
+    $(window).keyup(function(event) {
+        hasThisBeenOodled();
+    });
 
     function init() {
         $(window).keydown(function(event){
@@ -62,6 +77,10 @@ $('document').ready(function() {
         });
 
         $('#submit').click(function() {
+            if($('#submit').hasClass('disabled')) {
+                $('#name').focus();
+                return;
+            }
             oodle();
         });
 
@@ -116,6 +135,7 @@ $('document').ready(function() {
         $('#reset').click(function() {
             $('#controls').css({display: "none"});
             $('#name').val('');
+            $('html').attr("name","");
             resetURL();
             share.hide();
         });
@@ -152,7 +172,7 @@ $('document').ready(function() {
         $('#controls').css({display: "inline"});
 
         createShareLink(name);
-        setCurrentName(name);
+        setCurrentName(oodled);
         share.show();
 
         textToSpeak(oodled);
