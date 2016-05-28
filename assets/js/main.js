@@ -55,7 +55,7 @@ $('document').ready(function() {
         var oodled = name.replace(/[aAeEoOuU]/ig,string);
         nameField.val(oodled);
 
-        $('#controls').show();
+        $('#controls').css({display: "inline"});
 
         textToSpeak(oodled);
     }
