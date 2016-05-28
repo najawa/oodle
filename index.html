@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oodle</title>
+
+    <meta name="author" content="Nathaniel Waddell">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="assets/js/vendor/sweetalert-master/dist/sweetalert.min.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='assets/css/vendor/font-awesome/css/font-awesome.min.css' rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="assets/js/vendor/sweetalert-master/dist/sweetalert.css">
+
+    <link href='assets/css/styles.css' rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<label for="name">
+    <textarea name="name" id="name" autofocus></textarea>
+</label>
+
+<div id="buttons">
+    <button id="submit">Oodle</button>
+    <button id="reset">Reset</button>
+    <i class="fa fa-question-circle-o" id="help" aria-hidden="true"></i>
+</div>
+
+<div id="copyright">
+    &copy; Copyright <span class="date"></span> Nathaniel Waddell
+</div>
+
+<script type="text/javascript">
+    $('document').ready(function() {
+
+        var string = "oodle";
+        var currentYear = new Date().getFullYear();
+
+        console.log(currentYear);
+
+        $('.date').html(currentYear);
+
+        $(window).keydown(function(event){
+            if(event.keyCode == 13) {
+                event.preventDefault();
+                oodle();
+            }
+        });
+
+        $('#submit').click(function() {
+            oodle();
+        });
+
+        $('#reset').click(function() {
+            $('#name').val('');
+        });
+
+        $('#help').click(function() {
+            swal({
+                title: "Oodle",
+                text: "<p>Just enter your name directly into the page, and click <i>Oodlize</i>!</p><br><br><small>Using&nbsp;the&nbsp;latest&nbsp;research&nbsp;and&nbsp;technology&nbsp;in&nbsp;oodle, this&nbsp;applicationvwill&nbsp;replace&nbsp;every&nbsp;vowel&nbsp;with&nbsp;'oodle'.</small>",
+                html: true,
+                showCancelButton: false,
+                confirmButtonText: "Let's Oodle!",
+                type: "info"
+            })
+        });
+
+        function oodle() {
+            var nameField = $('#name');
+            var name = nameField.val();
+            var oodled = name.replace(/[aAeEoOuU]/ig,string);
+            nameField.val(oodled);
+
+            var msg = new SpeechSynthesisUtterance();
+            var voices = window.speechSynthesis.getVoices();
+
+            console.log(voices);
+            msg.voice = voices[4];
+            msg.voiceURI = 'native';
+            msg.volume = 1; // 0 to 1
+            msg.rate = .6; // 0.1 to 10
+            msg.pitch = 1; //0 to 2
+            msg.text = oodled;
+            msg.lang = 'en-US';
+
+            window.speechSynthesis.speak(msg);
+        }
+
+    })
+</script>
+
+</body>
+</html>

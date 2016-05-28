@@ -1,0 +1,57 @@
+html {
+    font-family: 'Droid Sans', sans-serif;
+}
+body {
+    margin: 0;
+}
+textarea {
+    display: block;
+    width: 90%;
+    height: 70%;
+    font-size: 5em;
+    margin: 15% auto 0 auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    resize: none;
+    overflow: scroll;
+    border: none;
+    text-align: center;
+}
+textarea:focus, textarea:active {
+    outline: none;
+    border: none;
+}
+#buttons {
+    position: relative;
+    top: 0;
+    padding: 1% 0;
+    text-align: center;
+}
+button {
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    padding: 15px 24px;
+    background: #974B91;
+    border: none;
+    border-radius: 5px;
+}
+#buttons #reset {
+    color: rgba(255,255,255,.7);
+}
+#buttons i {
+    color: #974B91;
+    font-size: 2em;
+    vertical-align: middle;
+    margin: 0 6px;
+}
+#copyright {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: .2em;
+    margin: .4em;
+    color: rgba(0,0,0,.54);
+}
