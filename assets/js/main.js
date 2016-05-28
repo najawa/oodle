@@ -54,7 +54,7 @@ $('document').ready(function() {
 
     function hasThisBeenOodled() {
         console.log($('html').attr("name") , $('#name').val());
-        if($('html').attr("name") == $('#name').val()) {
+        if($('html').attr("name") == $('#name').val() || $('#name').val() == '') {
             $('#submit').addClass('disabled');
         } else {
             $('#submit').removeClass('disabled');
