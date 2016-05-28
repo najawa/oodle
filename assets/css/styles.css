@@ -52,16 +52,14 @@ button {
 #buttons #submit {
     float: left;
     margin: 0 15px;
-    font-size: 1.2em;
+    font-size: 2em;
 }
 #buttons #submit.disabled {
     opacity: 0.65;
     cursor: not-allowed;
 }
 #buttons #reset {
-    color: rgba(255,255,255,.8);
     margin: 0 15px 0 0;
-    font-size: 1.2em;
 }
 #buttons i {
     color: #974B91;
