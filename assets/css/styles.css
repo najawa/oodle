@@ -19,6 +19,7 @@ textarea {
     border: none;
     text-align: center;
     outline:none;
+    overflow:auto;
 }
 textarea:focus, textarea:active {
     outline: none;
