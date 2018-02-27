@@ -20,6 +20,7 @@ textarea {
     text-align: center;
     outline:none;
     overflow:auto;
+    background: none;
 }
 textarea:focus, textarea:active {
     outline: none;
