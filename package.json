@@ -1,0 +1,10 @@
+{
+  "name": "oodle",
+  "version": "1.0.0",
+  "description": "A fun web application that replaces vowels with 'oodle'",
+  "scripts": {
+    "test": "node --test 'test/**/*.test.js'"
+  },
+  "author": "Nathaniel Waddell",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(git -C /Users/nate/Development/repositories/mi/oodle log --oneline -10)",
+      "Bash(git -C /Users/nate/Development/repositories/mi/oodle remote:*)",
+      "Bash(git -C /Users/nate/Development/repositories/mi/oodle config:*)",
+      "Bash(git -C /Users/nate/Development/repositories/mi/oodle config --get user.email)",
+      "Bash(npm test)"
+    ]
+  }
+}

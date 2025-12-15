@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oodle</title>
+
+    <meta name="author" content="Nathaniel Waddell">
+    <meta name="description" content="After decades of research, top paid scientists have finally agreed on a standard for Oodling. Simply enter your name, and trust the experts.">
+    <meta name="og:description" content="After decades of research, top paid scientists have finally agreed on a standard for Oodling. Simply enter your name, and trust the experts.">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/assets/js/vendor/sweetalert-master/dist/sweetalert.min.js"></script>
+    <script src="/assets/js/vendor/typed.js/dist/typed.min.js"></script>
+    <script src="/assets/js/transformations.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    <link href="/assets/css/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/js/vendor/sweetalert-master/dist/sweetalert.css">
+    <link href="/assets/css/styles.css" rel="stylesheet" type="text/css">
+
+    <link rel="image_src" href="http://oodle.online/assets/img/thumbnail.png">
+    <meta property="fb:app_id" content="1294047613943527">
+    <meta property="og:title" content="Oodle">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://oodle.online/assets/img/thumbnail.png">
+    <meta property="og:image:url" content="http://oodle.online/assets/img/thumbnail.png">
+    <meta property="og:url" content="http://oodle.online/oodle/">
+    <meta property="og:site_name" content="Oodle">
+</head>
+<body>
+
+<label for="name">
+    <textarea name="name" id="name" spellcheck="false" autofocus></textarea>
+</label>
+
+<div id="buttons">
+    <div id="controls">
+        <i class="fa fa-play audio play" aria-hidden="true"></i>
+        <i class="fa fa-pause audio pause" aria-hidden="true"></i>
+    </div>
+    <button id="submit">Oodle</button>
+    <i class="fa fa-share" id="share" aria-hidden="true"></i>
+    <i class="fa fa-refresh" id="reset" aria-hidden="true"></i>
+    <i class="fa fa-home" id="home" aria-hidden="true" title="Back to all transformations"></i>
+</div>
+
+<div id="copyright">
+    &copy; Copyright <span class="date"></span> Nathaniel Waddell
+</div>
+
+<a id="bitbucket" href="https://gitlab.com/najawa/oodle" title="Fork it from GitLab"><i class="fa fa-gitlab" aria-hidden="true"></i></a>
+
+<script>
+    $(document).ready(function() {
+        WhimsicalApp.init({ transformationType: 'oodle' });
+    });
+</script>
+
+</body>
+</html>

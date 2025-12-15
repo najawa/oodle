@@ -2,51 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Oodle</title><!--formatted-->
+    <title>Whimsical Text Transformations</title>
 
     <meta name="author" content="Nathaniel Waddell">
+    <meta name="description" content="A suite of silly text transformations. Oodle, Wibble, Snorfle, Bloop, Zazzle, and Flumph your way to fun!">
+    <meta name="og:description" content="A suite of silly text transformations. Oodle, Wibble, Snorfle, Bloop, Zazzle, and Flumph your way to fun!">
 
-    <meta name="description" content="After decades of research, top paid scientists have finally agreed on a standard for Oodling. Simply enter your name, and trust the experts." /><!--formatted-->
-    <meta name="og:description" content="After decades of research, top paid scientists have finally agreed on a standard for Oodling. Simply enter your name, and trust the experts." /><!--formatted-->
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    <link href="/assets/css/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/styles.css" rel="stylesheet" type="text/css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="/assets/js/vendor/sweetalert-master/dist/sweetalert.min.js"></script>
-    <script src="/assets/js/vendor/typed.js/dist/typed.min.js"></script>
-    <script src="/assets/js/main.js"></script>
-
-    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-    <link href='/assets/css/vendor/font-awesome/css/font-awesome.min.css' rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/assets/js/vendor/sweetalert-master/dist/sweetalert.css">
-
-    <link href='/assets/css/styles.css' rel="stylesheet" type="text/css">
-
-    <link rel="image_src" href="http://oodle.online/assets/img/thumbnail.png" /><!--formatted-->
-    <meta property="fb:app_id" content="1294047613943527" /><!--formatted-->
-    <meta property="og:title" content="Oodle" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="http://oodle.online/assets/img/thumbnail.png" /><!--formatted-->
-    <meta property="og:image:url" content="http://oodle.online/assets/img/thumbnail.png" /><!--formatted-->
-    <meta property="og:url" content="http://oodle.online/" />
-    <meta property="og:site_name" content="Oodle" /><!--formatted-->
-
+    <meta property="og:title" content="Whimsical Text Transformations">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://oodle.online/">
+    <meta property="og:site_name" content="Whimsical Text Transformations">
 </head>
-<body>
+<body class="landing">
 
-<label for="name">
-    <textarea name="name" id="name" spellcheck="false" autofocus></textarea>
-</label>
+<div class="landing-container">
+    <h1>Whimsical Text Transformations</h1>
+    <p class="tagline">Pick your poison. Enter some text. Prepare to giggle.</p>
 
-<div id="buttons">
-    <div id="controls">
-        <i class="fa fa-play audio play" aria-hidden="true"></i>
-        <i class="fa fa-pause audio pause" aria-hidden="true"></i>
+    <div class="transformation-grid">
+        <a href="/oodle/" class="transformation-card" style="--card-color: #974B91;">
+            <h2>Oodle</h2>
+            <p class="description">Replaces vowels with "oodle"</p>
+            <p class="example"><span>Hello</span> <i class="fa fa-arrow-right"></i> <span>Hoodlelloodle</span></p>
+        </a>
+
+        <a href="/wibble/" class="transformation-card" style="--card-color: #E67E22;">
+            <h2>Wibble</h2>
+            <p class="description">Adds "ib" after consonants</p>
+            <p class="example"><span>Hello</span> <i class="fa fa-arrow-right"></i> <span>Hibeliblibo</span></p>
+        </a>
+
+        <a href="/snorfle/" class="transformation-card" style="--card-color: #3498DB;">
+            <h2>Snorfle</h2>
+            <p class="description">Adds "snorf" to each word</p>
+            <p class="example"><span>Hello</span> <i class="fa fa-arrow-right"></i> <span>Hellosnorf</span></p>
+        </a>
+
+        <a href="/bloop/" class="transformation-card" style="--card-color: #1ABC9C;">
+            <h2>Bloop</h2>
+            <p class="description">Adds "oop" after vowels</p>
+            <p class="example"><span>Hello</span> <i class="fa fa-arrow-right"></i> <span>Heoopllooop</span></p>
+        </a>
+
+        <a href="/zazzle/" class="transformation-card" style="--card-color: #F39C12;">
+            <h2>Zazzle</h2>
+            <p class="description">Replaces s and z with "zazzle"</p>
+            <p class="example"><span>Suzy</span> <i class="fa fa-arrow-right"></i> <span>Zazzleuzazzley</span></p>
+        </a>
+
+        <a href="/flumph/" class="transformation-card" style="--card-color: #E91E63;">
+            <h2>Flumph</h2>
+            <p class="description">Adds "lumph" after lip sounds</p>
+            <p class="example"><span>Bob</span> <i class="fa fa-arrow-right"></i> <span>Blumphoblumph</span></p>
+        </a>
     </div>
-    <!-- TODO - rewrite the help section to be actually useful
-        <i class="fa fa-question-circle-o" id="help" aria-hidden="true"></i>
-    -->
-    <button id="submit">Oodle</button>
-    <i class="fa fa-share" id="share" aria-hidden="true"></i>
-    <i class="fa fa-refresh" id="reset" aria-hidden="true"></i>
 </div>
 
 <div id="copyright">
@@ -55,37 +68,9 @@
 
 <a id="bitbucket" href="https://gitlab.com/najawa/oodle" title="Fork it from GitLab"><i class="fa fa-gitlab" aria-hidden="true"></i></a>
 
-<!-- Google Analytics -->
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-78428493-1', 'auto');
-    ga('send', 'pageview');
-
+    document.querySelector('.date').textContent = new Date().getFullYear();
 </script>
-
-<!-- Facebook App ID -->
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '1294047613943527',
-            xfbml      : true,
-            version    : 'v2.6'
-        });
-    };
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-
 
 </body>
 </html>
